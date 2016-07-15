@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			*{margin:0;padding:0;}
+			#poin{
+				position: absolute;
+				top:45%;
+				left:50%;
+				transform:translate(-50%,-50%);
+			}
+			#top{
+				width:600px;
+				height:40px;
+				margin:30px auto;
+				margin-bottom:4px;
+				background:#90ee90;
+				border:1px solid black;
+			}
+			#top span{
+				display: inline-block;
+				width:180px;
+				height:40px;
+				line-height: 40px;
+				margin-left:100px;
+				font-size:1.2em;
+			}
+			#top span b{
+				color:#f11;
+				font-size:1.3em;
+			}
+			#container{
+				width:600px;
+				height:600px;
+				border:1px solid black;
+				margin:0 auto;
+				font-size:4em;
+				text-align: center;
+				line-height:600px;
+			}
+			#container img{
+				float:left;
+				display: inline-block;
+				border:1px solid black;
+				border:4px solid #fff;
+				box-sizing:border-box;
+			}
+			#container .scripal{
+			}
+			#start{
+				width:600px;
+				height:600px;
+				background:#f08080;
+				margin:0 auto;
+				text-align: center;
+				font-size:2em;
+				cursor: pointer;
+				line-height:600px;
+			}
+			@media (max-width:500px){
+				#top{
+				width:300px;
+				height:40px;
+				margin:60px auto;
+				margin-bottom:4px;
+				}
+				#top span{
+				width:100px;
+				height:40px;
+				line-height: 40px;
+				margin-left:40px;
+				font-size:1.1em;
+				}
+				#top span b{
+					color:#f11;
+					font-size:1.2em;
+				}
+				#container{
+					width:300px;
+					height:300px;
+					margin:0 auto;
+					font-size:2em;
+					line-height:300px;
+				}
+				#start{
+					width:100%;
+					height:100%;
+					margin:0 auto;
+					font-size:2em;
+					line-height:300px;
+				}
+
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		window.onload = function(){
+			var container = document.querySelector('#container');
+			var topt = document.querySelector('#topt');
+			var topm = document.querySelector('#topm');
+			var start = document.querySelector('#start');
+			start.onclick = function(){
+				var n = 2;
+				var toptb = 30;
+				var topmb = 0;
+				function ov(){
+					container.innerHTML = '得分：'+topmb;
+					topt.innerHTML = '时间: <b>'+ '悲哀' +'</b>';
+					topm.innerHTML = '得分: <b>'+ '悲哀' +'</b>';
+					var over = confirm('你的得分是'+topmb+'---悲哀.是否还继续?');
+						if(over == true){
+							container.innerHTML = '倒计时。。。';
+							setTimeout('container.innerHTML = "3"',1000);
+							setTimeout('container.innerHTML = "2"',2000);
+							setTimeout('container.innerHTML = "1"',3000);
+							setTimeout('location.reload()',4000);
+							// container.innerHTML = '<div id="start">开始</div>';
+							// setTimeout(container.innerHTML = '<div id="start">开始</div>',5000);
+						}else{
+							toptb = 0;
+							topmb = 0;
+							container.innerHTML = 'gameover!!!';
+							setTimeout('location.reload()',4000);
+							// container.innerHTML = '<div id="start">开始</div>';
+
+						}
+				}
+				function clear(){
+					clearInterval(timer);
+				}
+				timer = setInterval(function(){
+					toptb --;
+					topt.innerHTML = '时间: <b>'+ toptb +'</b>';
+					if(toptb <= 0 ){
+					clear();
+					ov();
+					}
+				},1000);
+				function findFn(){
+					container.innerHTML = '';
+					var w = container.clientWidth / n;
+					for(var i = 0;i < n*n;i ++){
+						var img = document.createElement('img');
+						img.style.width = img.style.height = w + 'px';
+						img.src = 'https://img.alicdn.com/imgextra/i2/850569867/TB2.bLEsXXXXXaDXpXXXXXXXXXX-850569867.png';
+						container.appendChild(img);
+					}
+					var random = parseInt(Math.random()*(n*n));
+					var imgArr = document.querySelectorAll('img');
+					imgArr[random].className = 'scripal';
+					imgArr[random].src = 'https://img.alicdn.com/imgextra/i4/850569867/TB2VxUfsXXXXXaxXXXXXXXXXXXX-850569867.png';
+					//点击事件
+					for(var i = 0;i < (n*n);i ++){
+						imgArr[i].index = i;
+						imgArr[i].onclick = function(){
+							if(this.index == random){
+								n ++;
+								topmb ++;
+								topm.innerHTML = '得分: <b>'+ topmb +'</b>';
+								findFn();
+							}else{
+								clear();
+								ov();
+							}
+						}
+					}
+				}
+				findFn();
+			}
+		}
+	</script>
+	<body>
+		<div id="poin">
+			<div id="top">
+				<span id="topt">时间: <b></b></span>
+				<span id="topm">得分: <b></b></span>
+			</div>
+			<div id="container"><div id="start">开始</div></div>
+		</div>
+	</body>
+</html>
