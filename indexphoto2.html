@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			*{margin:0;padding:0;}
+			#menu{
+				position:relative;
+				width:1000px;
+				height:40px;
+				margin:50px auto;
+				margin-bottom:0px;
+				background:#eee;
+
+			}
+			#menu span{
+				display:inline-block;
+				width:80px;
+				height:40px;
+				/*background:pink;*/
+				text-align:center;
+				line-height:40px;
+				font-size:1.1em;
+				/*color:#9ab390;*/
+				cursor:pointer;
+			}
+			#slide{
+				position:absolute;
+				width:80px;
+				height:4px;
+				background:#f07070;
+				bottom:0;
+				transition:all 1.5s;
+				left:0;
+			}
+			#wrap{
+				width:1000px;
+				height:600px;
+				position:relative;
+				margin:0 auto;
+				overflow:hidden;
+			}
+			#photo{
+				width:15000px;
+				height:600px;
+				position: absolute;
+				left:0;
+				transition:all 1.5s;
+			}
+			#photo img{
+				float:left;
+				width:1000px;
+				height:600px;
+			}
+		</style>
+	</head>
+	<script>
+		window.onload = function(){
+			var menuSp = document.querySelectorAll('#menu span');
+			var slide = document.querySelector('#slide');
+			var photo= document.querySelector('#photo');
+			var photoImg = document.querySelectorAll('#photo img');
+			var slideNum = 0;
+			for(var i = 0;i < menuSp.length;i ++){
+				menuSp[i].index = i;
+				menuSp[i].onmouseover = function(){
+					clearInterval(timer);
+					slide.style.left = this.index * (80+4) + 'px';
+					photo.style.left = this.index * -1000 + 'px';
+					slideNum = this.index;
+					autoPlay();
+				}
+			}
+			function autoPlay(){
+				timer = setInterval(function(){
+					slideNum ++;
+					if(slideNum >= photoImg.length){
+						slideNum = 0;
+					}
+					slide.style.left = slideNum * (80+4) + 'px';
+					photo.style.left = slideNum * -1000 + 'px';
+				},3000)
+			}
+			autoPlay();
+		}
+	</script>
+	<body>
+		<div id="menu">
+			<span>导航一</span>
+			<span>导航二</span>
+			<span>导航三</span>
+			<span>导航四</span>
+			<span>导航五</span>
+			<span>导航六</span>
+			<span>导航七</span>
+			<span>导航八</span>
+			<span>导航九</span>
+			<span>导航十</span>
+			<div id="slide"></div>
+		</div>
+		<div id="wrap">
+			<div id="photo">
+				<img src="img/01.jpg" alt="">
+				<img src="img/02.jpg" alt="">
+				<img src="img/03.jpg" alt="">
+				<img src="img/04.jpg" alt="">
+				<img src="img/05.jpg" alt="">
+				<img src="img/06.jpg" alt="">
+				<img src="img/07.jpg" alt="">
+				<img src="img/08.jpg" alt="">
+				<img src="img/09.jpg" alt="">
+				<img src="img/10.jpg" alt="">
+			</div>
+		</div>
+	</body>
+</html>
