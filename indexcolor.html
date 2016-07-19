@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<head>
+	<meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<base href='http://www.webhek.com/misc-res/inverter/'> <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script><script>  (adsbygoogle = window.adsbygoogle || []).push({    google_ad_client: 'ca-pub-9195052014444206',    enable_page_level_ads: true  });</script>
+	<title>蓝色拼图</title>
+	<meta name="description" content="这是一个用HTML5制作的智力游戏，有相当的难度。每个方块一面橙色，一面蓝色。点击一个方块，这个方块的颜色会翻转，并且，与它邻接的方块的颜色也会翻转。使拼板全部变成蓝色， 你就算过关了。" />
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/viewmodel.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+	<style type="text/css">
+	.form, .comments{display: block;clear: both;margin:  0 auto; width: 600px;}
+	code{white-space: normal;}
+	.comments_warp{margin-top: 650px;}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="heading">
+			<h1 class="title">蓝色拼图</h1>
+			<div class="scoresContainer">
+				<div class="currLevel"></div>
+				<div class="best"></div>
+				<div class="score"></div>
+				<div class="total"></div>
+			</div>
+		</div>
+		<div class="aboveGame">
+			<p class="gameInfo"></p>
+			<a class="reset btn btn-primary">重置级别</a>
+			<a class="newgame btn btn-primary">重新开始</a>
+			<a class="instruct btn btn-primary">玩法说明</a>
+		</div>
+		<div class="board"></div>
+	</div>
+
+
+
+	<div id="instructions" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content" id="pullThisHeight">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title">玩法说明</h4>
+				</div>
+				<div class="modal-body">
+					<p>如何才算赢：使拼板全部变成蓝色。 <br>
+					玩法：每个方块一面橙色，一面蓝色。点击一个方块，这个方块的颜色会翻转，并且，与它邻接的方块的颜色也会翻转。</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">开始！</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div id="newLevel" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="cheesyGoodJob"></h4>
+				</div>
+				<div class="modal-body">
+					<p id="levelDescriptor"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">开始</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div id="newGame" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">你确定要这样做？</h4>
+				</div>
+				<div class="modal-body">
+					<p>你真的想重新开始吗？</p>
+				</div>
+				<div class="modal-footer">
+					<button id="newGameConfirm" type="button" class="btn btn-success" data-dismiss="modal">新游戏</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div id="restartLevel" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="cheesyGoodJob">你确定要这样做？</h4>
+				</div>
+				<div class="modal-body">
+					<p>你真的想重新开始吗？</p>
+				</div>
+				<div class="modal-footer">
+					<button id="resetLevelConfirm" type="button" class="btn btn-success" data-dismiss="modal">重置级别</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="comments_warp"><div class="form">				<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/misc/inverter#respond" style="display:none;">取消回复</a></small></h3>				<form action="http://www.webhek.com/wordpress/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					<p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p><p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">姓名 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">电子邮件 <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">站点</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="comment-form-captcha">壹加壹等于 <input id="captcha" name="captcha" style="width:30px;" size="10" type="text" value="" /><p><script>if(document.getElementById("captcha").value == "") document.getElementById("captcha").value = "2";</script>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论" /> <input type='hidden' name='comment_post_ID' value='1463' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="6b44a8c845" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="184"/></p>				</form>
+					</div><!-- #respond -->
+		</div><div class="comments"><ol><li><strong>会游泳的小鸡</strong>：吼吼吼，第六关了，有进步</li><li><strong>会游泳的小鸡</strong>：玩到第五关就发现自己智障了</li><li><strong>chen</strong>：哈哈哈</li><li><strong>abc</strong>：高斯元</li><li><strong>hate13</strong>：不是高斯消元么？</li><li><strong>steve</strong>：01: 1
+02: 1,1
+03: 1,0,1
+04: 0,0,0,0
+05: 1,1,0,0,0
+06: 1,0,1,1,0,1
+07: 1,1,0,1,0,1,1
+08: 1,1,0,0,0,0,1,1
+09: 0,0,0,0,0,0,0,0,0
+10: 1,0,1,0,0,0,0,1,0,1
+11: 1,0,0,0,1,0,0,0,0,0,0
+12: 1,0,1,0,0,0,0,0,0,1,0,1
+13: 1,1,0,1,0,1,1,1,0,1,0,1,1
+14: 1,0,0,1,0,0,0,0,1,0,0,0,0,0
+15: 1,0,1,1,0,0,1,0,1,0,0,1,1,0,1
+16: 0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0
+17: 1,1,0,0,0,0,1,0,0,1,0,0,1,1,0,0,0
+18: 1,1,0,1,0,1,1,1,0,0,1,1,1,0,1,0,1,1
+19: 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+20: 1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,1
+21: 1,0,1,0,0,1,1,1,1,0,0,0,1,1,1,1,0,0,1,0,1
+22: 1,1,0,0,0,1,0,1,1,0,0,0,0,1,1,0,1,0,0,0,1,1
+23: 1,0,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+24: 1,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,1,1
+
+以上为第一行解法，1表点按；次行只要把上一行黄格子消去便可
+代码： http://pan.baidu.com/s/1UA99G 有兴趣的朋友可以看下
+PS：在25级时卡太久，目前没想到好的解决方法</li><li><strong>william</strong>：貌似这个页面出bug了，为啥别人的评论变成了我的链接。。http://iwestlin.github.io/lab/puzzle/index2.html</li><li><strong>william</strong>：稍微修改了下，可以选关，还藏了个彩蛋：
+<a href="http://iwestlin.github.io/lab/puzzle/index2.html" rel="nofollow"></li><li><strong>小苗苗</strong>：有些确实不错啊</li><li><strong>次奥</strong>：难 啊</li><li><strong>小周</strong>：不错，支持</li><li><strong>player</strong>：<a href="alert('第五关过不去')" title="" rel="nofollow"></li><li><strong>oyxj</strong>：把container的宽度设成百分比的好一点,否则在移动设备上玩不了啊</li><li><strong>巅峰</strong>：so good</li><li><strong>红魔恶少</strong>：<del datetime=""></li><li><strong>红魔恶少</strong>：很不错的东西，作为前端开发者 我是没想出来</li><li><strong>yzh</strong>：。。。
+。。。
+。。。
+。。。
+。。。</li><li><strong>kella</strong>：写程序可以用位运算，优化一下20之前都蛮快的</li><li><strong>sdfsad</strong>：</li><li><strong>xhay</strong>：有点儿意思哟、、、、</li><li><strong>老景</strong>：好游戏，思路好。顺测一下A
+<a href='#' title='##' rel="nofollow">好游戏，思路好。顺测一下A</a></li><li><strong>陆熠</strong>：成功自制了一个，感谢提供灵感！！</li><li><strong>skyjilygao</strong>：玩到6关，，，，第六关怎么破啊。。最后是什么图形消除的啊</li><li><strong>贤狼赫萝</strong>：楼下的
+kaz
+真吊呀</li><li><strong>贤狼赫萝</strong>：呵呵,蛮有意思的</li><li><strong>yufan</strong>：哎 太累了</li><li><strong>secret</strong>：5关，没法走了</li><li><strong>feelove</strong>：<strong>N</strong>ice 666</li><li><strong>feelove</strong>：<strong>n</strong>ice</li><li><strong>feelove</strong>：<strong>n</strong>ice</li><li><strong>feelove</strong>：<strong>n</strong>ice</li><li><strong>在线工具</strong>：好难~~~</li><li><strong>kaz</strong>：算第14关很快,秒出
+Lv14:00000100001001,11110001100000,10010001100110,11110100000110,
+00001000010000,00010111000001,11000101001100,11000101001100,
+00010111000001,00001000010000,11110100000110,10010001100110,
+11110001100000,00000100001001
+算第15关很慢,算了几分钟
+Lv15:101100101001101,011100010001110,111001101100111,
+110101101101011,000010010010000,001101101101100,
+101101101101101,010010010010010,101101101101101,
+001101101101100,000010010010000,110101101101011,
+111001101100111,011100010001110,101100101001101</li><li><strong>kaz</strong>：第13关算得慢了一点，也出来了
+Lv13:1101011101011,1110110110111,0110100010110,1001111111001,
+0111100011110,1101010101011,1001001001001,1101010101011,
+0111100011110,1001111111001,0110100010110,1110110110111,
+1101011101011</li><li><strong>kaz</strong>：编了个程求解，以下2-12关的结果。
+Lv2:11,11
+Lv3:101,010,101
+Lv4:0000,1111,1001,1111
+Lv5:00011,11011,11100,01110,10110
+Lv6:101101,011110,111111,111111,011110,101101
+Lv7:1101011,1110111,0110110,1001001,0110110,1110111,1101011
+Lv8:11000011,11011011,00111100,01111110,01111110,00111100,11011011,11000011
+Lv9:000000000,111111111,100000001,110000011,010111010,111101111,110000011,001010100,010101010
+Lv10:1010000101,0100110010,1010110101,0001001000,0110110110,0110110110,0001001000,1010110101,0100110010,1010000101
+Lv11:00000010001,11111000100,10001000000,11011011011,01110111111,10000111010,01000010011,10011111001,01010011011,10111100110,00110111101
+Lv12:101000000101,010011110010,101010010101,000111111000,011110011110,010101101010,010101101010,011110011110,000111111000,101010010101,010011110010,101000000101</li><li><strong>小彭</strong>：在手机上竖屏显示没有适应屏幕大小，横屏可以。调不过来，样式太复杂了。</li><li><strong>toamstong</strong>：很不错呀<code>game over</code></li><li><strong>111</strong>：123</li><li><strong>123</strong>：324</li><li><strong>123</strong>：32</li><li><strong>G.U</strong>：七关是个坎儿</li><li><strong>key</strong>：好难，到第六关，硬是过不去了。</li><li><strong>Mark</strong>：7关中</li><li><strong>大大</strong>：有android手机版，叫色块翻转。坐公交的时候可以玩玩</li><li><strong>大哲</strong>：第二十二关  也太小了  都看不清了</li><li><strong>小凡</strong>：话说枚举的复杂度是 O(2^(n^2)) ，枚举能过第5关。后面的算不下来。这游戏可以出成编程题</li><li><strong>John。</strong>：他们说我也想做成手游了。</li><li><strong>ainswll</strong>：第5关怎么破~~~求解</li><li><strong>wl</strong>：<a href="" title="" rel="nofollow">a标签测试1</a></li><li><strong>wwl</strong>：<a href="" title="" rel="nofollow">a标签测试</a></li><li><strong>这是乱码</strong>：我提取并稍微整理了一下这个游戏的源码，提供给大家共同学习（https://github.com/liudonghua123/webhek_puzzle），大家Fork之后可以自己增强一下哦！</li><li><strong>捏捏捏</strong>：难难难难难！！！</li><li><strong>鲁莽的嫩叶</strong>：爆炸   技巧待发现啊</li><li><strong>周小虎</strong>：http://download.csdn.net/detail/zhou8622/8184375</li><li><strong>周小虎</strong>：http://download.csdn.net/detail/zhou8622/8183193   我实现了一下源码,请指教.</li><li><strong>代码狂</strong>：有源代码么，好难得游戏啊</li><li><strong>zpl</strong>：6关....</li><li><strong>he</strong>：solution 0 ============================
+0 0 0 1 1
+1 1 0 1 1
+1 1 1 0 0
+0 1 1 1 0
+1 0 1 1 0
+solution 1 ============================
+0 1 1 0 1
+0 1 1 1 0
+0 0 1 1 1
+1 1 0 1 1
+1 1 0 0 0
+solution 2 ============================
+1 0 1 1 0
+0 1 1 1 0
+1 1 1 0 0
+1 1 0 1 1
+0 0 0 1 1
+solution 3 ============================
+1 1 0 0 0
+1 1 0 1 1
+0 0 1 1 1
+0 1 1 1 0
+0 1 1 0 1</li><li><strong>本志</strong>：七关了，继续玩</li><li><strong>ITyang</strong>：好给力</li><li><strong>ghosttest</strong>：好难玩！</li><li><strong>chinalcc</strong>：这源码在哪里可以下载呢？</li><li><strong>青菜妹妹</strong>：<b>太厉害了...有没有代码啊..求码..</b></li><li><strong>Ryansbeans</strong>：第6关，死活过不去</li><li><strong>junjun</strong>：
+alert("第五关卡住了")
+</li><li><strong>junjun</strong>：
+第五关卡住了
+</li><li><strong>猫弥</strong>：第五关开始就要智商了麽 ...T T</li><li><strong>野草哥</strong>：完美翻版的飘过~~啦啦啦</li><li><strong>糖炒栗子</strong>：第五关 受不了了  狂抓</li><li><strong>张成龙</strong>：前4关简单，第五关晕死</li><li><strong>wax</strong>：<a> \(^o^)/~ </a></li><li><strong>wax</strong>：<a href="#" title="==" rel="nofollow">0.0...</a></li><li><strong>sxf</strong>：<code>
+到6关<b>受不鸟</b>了。。。
+</code></li><li><strong>ss</strong>：乱点到五，之后研究了一下，很复杂啊，5怎么过啊</li><li><strong>天蓝</strong>：级别6，怎么过！</li><li><strong>123</strong>：我也怀疑第五关有解么</li><li><strong>司徒笑笑</strong>：alert(2)</li><li><strong>小明</strong>：我也怀疑第五关有解么？有空好好研究一下</li><li><strong>秦芳</strong>：很厉害</li><li><strong>aaa</strong>：5过不了~~~</li><li><strong>webhek</strong>：@yaokunyan:你的手游到哪里下载，链接？</li><li><strong>想</strong>：我怎么感觉第五关无解啊。。。</li><li><strong>yaokunyan</strong>：我把手游做出来了，不过关数一大，点击就失灵了</li><li><strong>哈哈</strong>：给我个源码好吗？</li><li><strong>webhek</strong>：没有版权，做好后把下载方式说一下，让大家都欣赏一下</li><li><strong>yaokunyan</strong>：我能把它改成手游么？有版权问题么？</li><li><strong>がさつな</strong>：*把代码一改直接晋级99关*</li><li><strong>がさつな</strong>：把代码一改直接晋级99关。</li><li><strong>zxt</strong>：后面太可怕</li><li><strong>BobShan</strong>：不是简单的做对称，第九层第一行不进行翻转。。。其实翻转先后次序无关，而且没有必要进行一次以上的翻转，我在第13 层。。。。玩不下去了，后期就是暴力穷举，复杂度O(2^n  * n^2)</li><li><strong>Rex</strong>：到五就难度了。。。六楼说的很有道理。</li><li><strong>TJT</strong>：好吧, 9級... 不玩了= =</li><li><strong>jasondyq</strong>：玩到第六关，不错。越到后边感觉脑子越不够用。</li><li><strong>TJT</strong>：8層已經是極限了.. 只要所有的操作都是對稱的就可以了.</li><li><strong>stuart</strong>：玩到第5关，我想接下来的应该用程序去解决了吧。</li><li><strong>iSnail</strong>：到第5关就卡住了，最高就是留中心那个没过去</li><li><strong>杨哲</strong>：我觉得玩到第五关开始难度增加太多了、、最好有相应的思路提示吧。。还有在手机屏幕上面显示的话，越往后那些方格越小，不利于点击。</li><li><strong>miao</strong>：5就过不去了</li><li><strong>TCtower</strong>：难，</li><li><strong>gg</strong>：乱点，才玩到4级</li><li><strong>webhek</strong>：太难了</li></ol></div></div>
+
+	<div>
+<style>
+#share_bar { background: none repeat scroll 0 0 #FFFFFF;/*#F5F8FD*/ border: 1px solid #CBD5ED; border-radius: 5px; color: #000000; font-size: 13px; text-align: center;z-index: 999; position: fixed;
+ 	right: 0px;
+    top: 50%;
+    margin-top: -140px;
+}
+#share_bar ul li{list-style:none;display: block;}
+#share_bar ul, #share_bar ul li{ margin:0; padding:0}
+#share_bar > ul > li > a {width: 45px; height: 35px; display: inline-block; text-align: center; position: relative;}
+#s_t, #s_c{line-height: 25px; vertical-align: middle;text-align: center;  }
+#share_bar > ul > li > a > span{height: 28px; width: 28px; display: inline-block; position:absolute; top:50%; left: 50%; margin-left: -14px; margin-top:-14px; background-repeat: no-repeat; background-image: url(/misc-res/images/share-icon.png); }
+#tsina > span { background-position: 0 -91px;}
+#qzone > span { background-position: 0 -61px;}
+#tqq > span { background-position: 0 -121px;}
+#renren > span { background-position: 0 -151px;}
+#twitter > span { background-position: 0 -31px;}
+
+#tsina:hover{background-color: #e6162c;}
+#qzone:hover{background-color: #2980d7;}
+#tqq:hover{background-color: #4388c6;}
+#renren:hover{background-color: #f8f8f8;}
+#twitter:hover{background-color: #00aced;}
+
+.heng_share #share_bar{position: relative; margin-top: 0; right: 0; top: 0; display: inline-block;}
+.heng_share #share_bar ul li{float: left;width: 35px;}
+
+.left_share #share_bar{right: inherit;left: 0}
+</style>
+<div id='share_bar'>
+<ul>
+	<li id='s_t'>分享</li>
+    <li><a id='tsina' href="javascript:;" onclick="w('tsina')"><span></span></a></li>
+    <li><a id='qzone' href="javascript:;" onclick="w('qzone')"><span></span></a></li>
+    <li><a id='tqq' href="javascript:;" onclick="w('tqq')"><span></span></a></li>
+    <li><a id='renren' href="javascript:;" onclick="w('renren')"><span></span></a></li>
+    <li><a id='twitter' href="javascript:;" onclick="w('twitter')"><span></span></a></li>
+    <li id='s_c'>36</li>
+</ul>
+
+
+</div>
+
+</div>
+<script src='/misc-res/js/util.js'></script>
+<a style='display:none' href='http://www.webhek.com'>webhek</a> <script src='/misc-res/js/ga.js'></script><script>var shares_wb = 18;</script><script src='http://www.webhek.com/wordpress/wp-content/themes/webhek2/js/wb.js'></script>  <span id='pageendflag'></span>
+</body>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+
+ Served from: www.rubick.cn @ 2016-07-19 18:33:01 by W3 Total Cache -->
