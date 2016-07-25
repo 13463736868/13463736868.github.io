@@ -1,0 +1,237 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿网站</title>
+	<style>
+			/* 标签样式初始化 */
+		body{margin:0;padding:0;background:#fff;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+		form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+		img{border:0;}
+		ul,li{list-style-type:none;}
+		a{color:#00007F;text-decoration:none;}
+		a:hover{text-decoration:none;}
+			/*自定义样式*/
+		.top{background:rgba(53,51,51,0.79);text-align:center;position:fixed;width:100%;z-index:99}
+		.img{padding:15px 0;width:150px;}
+		.call{font-size:15px;color:#999;}
+		.menubar{width:90%;margin-left:5%;text-align:center;}
+		.imgtriangle{width:1.5em;z-index:-1}
+		.imgframe{width:90px;padding:0 4%;display:inline-block;}
+		.imgdrift{margin-top:-4px;}
+	/*	.Hhide{background:rgba(175, 172, 172, 0.08);display:none;}
+		.Whide{display:none;}
+		.Chide{display:none;}
+		.Jhide{display:none;}*/
+		.call:hover{ color: #fff;transition:all 0.25s ease-in-out;}
+		/*.Hhide:hover {visibility:visible;} visibility:hidden;*/
+
+
+		.banner{text-align:center;margin-top:20px;/*overflow:hidden;*/}
+		.imgbanner{width:74%;z-index:-1;}
+		.arrowL{position:absolute;margin-top:-270px;margin-left:-440px}
+		.arrowR{position:absolute;margin-top:-270px;margin-left:430px;}
+		.GM{background:rgba(147, 167, 164, 0.56);font-size:20px;color:rgba(255, 255, 255, 0.9);margin-top:-52px;padding:5px 0;}
+		.GM:hover{background:rgba(147, 167, 164, 0.6);font-size:20px;color:rgba(255, 255, 255, 1);margin-top:-52px;padding:5px 0;transition:all 0.25s ease-in-out;}
+		.gm{display:inline-block;position:relative;width:74%;top:-42px;}
+		.point{width:6px;height:6px;background-color:#999;border-radius:60%;display:inline-block;margin:0 10px;}
+		.stylep{margin-top: -50px;text-align:center;}
+		.point:hover{width:8px;height:8px;background-color:#fff;border-radius:50%;display:inline-block;margin:0 6px;border:1px solid #999;transition:all 0.25s ease-in-out;}
+
+		.table1{width:74%;text-align:left;margin-left:13%;margin-top:10px;}
+		.tablep{line-height: 1.5em;color: rgb(102, 102, 102);font-family: STKaiti, 微软雅黑;font-size: 14px}
+
+		hr{border:1px solid rgba(132, 130, 130, 0.26);}
+		.imglogo{margin-left: 13%;width:74%;}
+		.imglogo > img{width:6%;margin:0 3.55%;}
+		body{background-color:#f2f2f2}
+
+		.imgstream{width:74%;text-align: center;margin-left:13%;}
+		.imgtable{width:100%;border:0;margin-bottom:60px;}
+		.imgtr{width:28%;}
+		.imgtd{background-color:#fff;border-radius:6px;position:relative;}
+		.imgg{width:100%;border-radius:6px;}
+		.imgt{color:#b0b0b0;}
+		.menban{width:100%;height:100%;background:rgba(0,0,0,0.5);position:absolute;
+			;margin-right:2%;margin-bottom:2%;border-radius:6%; display: none;}
+		.imgp{margin-top:60px;font-size:20px;color:#fff;}
+		.imgtd:hover .menban{display:inline-block;}
+
+		/*蒙版暂时去除,因不能同比例缩放 悲催*/
+
+		.footer{width:100%;background-color:#e0e0e0;}
+		.footertd{width:50%;vertical-align:top;text-align:right;border-right:1px solid #999;padding-right:30px}
+		.footertd2{width:50%;padding-left:34px}
+		.footerp{font-size:0.75em;color:#666666;margin-bottom:5px;}
+		.footerimg2{width:150px;margin-bottom:5px;}
+		.footerimg{width:40px;}
+		.footertable{width:100%;}
+	</style>
+</head>
+<body>
+	<!-- 标题开始 -->
+	<div class="top">
+		<img  class="img"src="img/logo.png" alt=""><br>
+		<div class="menubar">
+			<div class="imgframe">
+				<a class="call"href="#">HOME</a></div>
+			<div class="imgframe">
+				<a class="call" href="#">WORK</a></div>
+			<div class="imgframe">
+				<a class="call" href="#">CONTACT</a></div>
+			<div class="imgframe">
+				<a class="call" href="">JOIN&nbspUS</a></div>
+
+		</div>
+	</div>
+	<!-- 标题结束 -->
+		<!-- 这是一个白框为4个三角做铺垫,也可以删除需把上面设置padding;92px或banner margin -->
+	<div style="height:98px;width:100%;background-color:#f2f2f2"></div>
+	<!-- 小三角开始 -->
+	<!-- 	<div class="menubar imgdrift">
+			<div class="imgframe Hhide">
+				<img class="imgtriangle menubar" src="img/slider1.png" alt=""></div>
+			<div class="imgframe Whide">
+				<img class="imgtriangle menubar" src="img/slider1.png" alt=""></div>
+			<div class="imgframe Chide">
+				<img class="imgtriangle menubar" src="img/slider1.png" alt=""></div>
+			<div class="imgframe Jhide">
+				<img class="imgtriangle menubar" src="img/slider1.png" alt=""></div>
+		</div> -->
+	<!-- 小三角结束 -->
+	<!-- banner开始 -->
+		<div class="banner">
+			<img class="imgbanner" src="img/111.png" alt=""><br>
+			<!-- <img class="arrowL" src="img/left.png" alt="">
+			<img class="arrowR" src="img/right.png" alt=""> --><br>
+			<div class="gm">
+			<p class="GM">大魔导师拉比克</p></div>
+			</div>
+		<div class="stylep">
+			<div class="point"></div>
+			<div class="point"></div>
+			<div class="point"></div>
+			<div class="point"></div>
+			<div class="point"></div>
+			<div class="point"></div>
+		</div>
+	<!-- banner结束 -->
+	<!-- 文字内容开始 -->
+		<table class="table1">
+			<td><hr><br><p class="tablep">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspInfini Studio (映纷创意)是一家意设计机构，专注于品质型动画影像的创意与设计。我们使用设计、动画、特效及多种创新形式（Motion Graphic），以动态视觉语言对品牌与内容进行创意呈现。并由动画导演、设计师、插画师、三维艺术家共同协作完成。服务的范围包括广告、影视、交互H5、新媒体等。</p><br><hr></td>
+		</table>
+	<!-- 文字内容结束 -->
+	<!-- 合作企业开始 -->
+		<div class="imglogo">
+			<img src="img/1.jpg" alt="">
+			<img src="img/2.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+			<img src="img/5.jpg" alt="">
+			<img src="img/6.jpg" alt="">
+			<img src="img/7.jpg" alt="">
+			<img src="img/8.jpg" alt="">
+			<img src="img/9.jpg" alt="">
+			<img src="img/10.jpg" alt="">
+			<img src="img/11.jpg" alt="">
+			<img src="img/12.jpg" alt="">
+			<img src="img/13.jpg" alt="">
+			<img src="img/14.jpg" alt="">
+		</div>
+	<!-- 合作企业结束 -->
+	<!-- 瀑布流开始 -->
+		<div class="imgstream">
+			<table class="imgtable" cellspacing="8">
+				<tr>
+					<td class="imgtd"><a href=""><div class="menban"><h2 class="imgp">大魔导师拉比克</h2></div><img class="imgg" src="img/a01.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><div class="menban"><h2 class="imgp">大魔导师拉比克</h2></div><img class="imgg" src="img/a02.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><div class="menban"><h2 class="imgp">大魔导师拉比克</h2></div><img class="imgg" src="img/a03.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+				<tr>
+					<td class="imgtd"><a href=""><div class="menban"><h2 class="imgp">大魔导师拉比克</h2></div><img class="imgg" src="img/a04.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><div class="menban"><h2 class="imgp">大魔导师拉比克</h2></div><img class="imgg" src="img/a05.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><div class="menban"><h2 class="imgp">大魔导师拉比克</h2></div><img class="imgg" src="img/a06.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+					<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a07.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a08.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a09.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+				<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a10.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a11.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a12.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+					<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a13.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a14.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a15.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+				<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a16.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a17.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a18.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+					<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a19.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a20.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a21.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+				<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a22.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a23.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a24.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+					<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a25.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a26.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a27.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+				<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a28.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a29.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a30.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+					<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a31.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a32.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a33.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+				<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a34.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a35.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a36.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+					<tr>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a37.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a38.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+					<td class="imgtd"><a href=""><img class="imgg" src="img/a39.jpg" alt=""></a><a class="imgt" href="">DOTA2</a></td>
+				</tr>
+			</table>
+		</div>
+	<!-- 瀑布流结束 -->
+	<!-- 页脚开始 -->
+		<div class="footer">
+				<table class="footertable">
+					<tr>
+						<td class="footertd">
+							<img class="footerimg" src="img/b01.jpg" alt="">
+							<img class="footerimg" src="img/b02.jpg" alt="">
+							<img class="footerimg" src="img/b03.jpg" alt="">
+						</td>
+						<td class="footertd2">
+							<img class="footerimg2" src="img/bottom.jpg" alt="">
+							<p class="footerp">Infini Studio | 映纷创意</p>
+							<p class="footerp">北京市朝阳北路107号院</p>
+							<p class="footerp">Infini Studio | 映纷创意</p>
+							<p class="footerp">Email:infinistudio@foxmail.com</p>
+							<p class="footerp">QQ: 7585917</p>
+							<p class="footerp">weibo: @InfiniStudio</p>
+
+						</td>
+					</tr>
+				</table>
+		</div>
+	<!-- 页脚结束 -->
+</body>
+</html>
