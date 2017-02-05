@@ -76,8 +76,8 @@
       }
     }
     var num = 10;
-    var timer = setTimeout(addNum(),1000);    
-    function addNum(){
+    var timer = setTimeout(addNum(num),1000);    
+    function addNum(num){
       num --;
       div2.innerHTML = num;
       if(num == 0){clearTimeout(timer)};
