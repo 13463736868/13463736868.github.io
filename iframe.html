@@ -62,7 +62,7 @@
     console.log(location);
     console.log(location.href);
     console.log(location.search);
-    var str = searchStr.substring(1);
+    var str = location.search.substring(1);
     strArr = str.split('&');	
     for(var i = 0,len=strArr.length;i < len;i ++){
       if(strArr[i].indexOf('color')>-1){
