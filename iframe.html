@@ -74,12 +74,12 @@
         console.log(skinColor[1]);
       }
     }
-    var num = 10;
-    var timer = setTimeout(addNum(num),1000);    
-    function addNum(num){
-      num --;
-      div2.innerHTML = num;
-      if(num == 0){clearTimeout(timer)};
+    var ts = new Date().getTime();
+    var timer = setTimeout(addNum(ts),1000);    
+    function addNum(ts){
+      num +='www';
+      div2.innerHTML = ts;
+      clearTimeout(timer);
     }
   </script>
 </html>
