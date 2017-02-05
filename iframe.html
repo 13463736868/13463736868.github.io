@@ -62,12 +62,13 @@
     console.log(location);
     console.log(location.href);
     console.log(location.search);
+    var div1 = document.querySelector('.div1')
     var str = location.search.substring(1);
     strArr = str.split('&');	
     for(var i = 0,len=strArr.length;i < len;i ++){
       if(strArr[i].indexOf('color')>-1){
         skinColor = strArr[i].split('=');
-        $(".div1").attr('backgroundColor',skinColor[1]);
+        div1.style.backgroundColor = skinColor[1];
         console.log(skinColor[1]);
       }
     }
