@@ -22,7 +22,7 @@
   </head>
   <body>
     <div class="div1">
--      <span>仍然倚在失眠夜 望天边星宿</span><br>
+      <span>仍然倚在失眠夜 望天边星宿</span><br>
 　    <span>仍然听见小提琴如泣似诉再挑逗</span><br><br>
       <span>为何只剩一弯月 留在我的天空</span><br>
       <span>这晚以后音讯隔绝</span><br>
@@ -57,12 +57,15 @@
       <span>提琴独奏独奏着 明月半倚深秋</span><br>
       <span>我的牵挂 我的渴望 直至以后</span><br>
     </div>
+    <div class="div2">
+    </div>
   </body>
   <script>
     console.log(location);
     console.log(location.href);
     console.log(location.search);
-    var div1 = document.querySelector('.div1')
+    var div1 = document.querySelector('.div1');
+    var div2 = document.querySelector('.div2');
     var str = location.search.substring(1);
     strArr = str.split('&');	
     for(var i = 0,len=strArr.length;i < len;i ++){
@@ -71,6 +74,12 @@
         div1.style.backgroundColor = skinColor[1];
         console.log(skinColor[1]);
       }
+    }
+    var timer = setTimeout(addNum(),1000);
+    var num = 10;
+    function addNum(){
+      num --;
+      if(num == 0){clearTimeout(timer)};
     }
   </script>
 </html>
