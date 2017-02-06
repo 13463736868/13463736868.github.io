@@ -33,8 +33,7 @@
   <body class="color">
     <div class="div2"></div>
     <div class="div1">
-      <span>仍然倚在失眠夜 望天边星宿</span><br>
-　    <span>仍然听见小提琴如泣似诉再挑逗</span><br><br>
+      <span>仍然倚在失眠夜 望天边星宿</span><br>　    <span>仍然听见小提琴如泣似诉再挑逗</span><br><br>
       <span>为何只剩一弯月 留在我的天空</span><br>
       <span>这晚以后音讯隔绝</span><br>
       <span id='red'>人如天上的明月 是不可拥有</span><br>
@@ -86,12 +85,12 @@
       //}
     //}
     var body = document.querySelector('body');
-    window.onhashchange(function() {
+    window.onhashchange=function() {
       var strColor = location.hash.substring(1);    
       console.log(body.getAttribute('className'));
       body.setAttribute('className',strColor);
       console.log(strColor);
-    });
+    };
     window.addEventListener('hashchange',GetColor());
     function GetColor(){
       var strColor = location.hash.substring(1);    
