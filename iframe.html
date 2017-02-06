@@ -89,6 +89,7 @@
     window.addEventListener('hashchange',GetColor());
     function GetColor(){
       var strColor = location.hash.substring(1);    
+      console.log(body.getAttribute('class'));
       body.setAttribute('class',strColor);
       console.log(strColor);
     };    
