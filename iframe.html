@@ -75,8 +75,7 @@
         //console.log(skinColor[1]);
       //}
     //}
-    var body = document.querySelector('body');
-    body.addEventListener('hashchange',GetColor());
+    window.addEventListener('hashchange',GetColor());
     function GetColor(){
       var strColor = location.hash.substring(1);    
       div1.style.backgroundColor = strColor;
