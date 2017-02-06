@@ -86,6 +86,12 @@
       //}
     //}
     var body = document.querySelector('body');
+    window.onhashchange(function() {
+      var strColor = location.hash.substring(1);    
+      console.log(body.getAttribute('className'));
+      body.setAttribute('className',strColor);
+      console.log(strColor);
+    });
     window.addEventListener('hashchange',GetColor());
     function GetColor(){
       var strColor = location.hash.substring(1);    
