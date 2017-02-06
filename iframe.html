@@ -76,22 +76,28 @@
     console.log(location.hash);
     var div1 = document.querySelector('.div1');
     var div2 = document.querySelector('.div2');
-    //var str = location.search.substring(1);
-    //strArr = str.split('&');	
-    //for(var i = 0,len=strArr.length;i < len;i ++){
-      //if(strArr[i].indexOf('color')>-1){
-        //skinColor = strArr[i].split('=');
-        //div1.style.backgroundColor = skinColor[1];
-        //console.log(skinColor[1]);
-      //}
-    //}
+    // var str = location.search.substring(1);
+    // strArr = str.split('&');	
+    // for(var i = 0,len=strArr.length;i < len;i ++){
+    //   if(strArr[i].indexOf('color')>-1){
+    //     skinColor = strArr[i].split('=');
+    //     div1.style.backgroundColor = skinColor[1];
+    //     console.log(skinColor[1]);
+    //   }
+    // }
     var body = document.querySelector('body');
-    window.onhashchange=function() {
+    // window.onhashchange=function() {
+    //   var strColor = location.hash.substring(1);    
+    //   console.log(body.getAttribute('class'));
+    //   body.setAttribute('class',strColor);
+    //   console.log(strColor);
+    // };
+    window.addEventListener('hashchange',function(){
       var strColor = location.hash.substring(1);    
       console.log(body.getAttribute('class'));
       body.setAttribute('class',strColor);
       console.log(strColor);
-    };   
+    });
     var ts = new Date().getTime();
     var timer = setTimeout(addNum(ts),1000);    
     function addNum(ts){
