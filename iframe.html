@@ -75,9 +75,13 @@
         //console.log(skinColor[1]);
       //}
     //}
-    var strColor = location.hash.substring(1);
-    div1.style.backgroundColor = strColor;
-    console.log(strColor);
+    var body = document.querySelector('body');
+    body.addEventListener('hashchange',GetColor());
+    function GetColor(){
+      var strColor = location.hash.substring(1);    
+      div1.style.backgroundColor = strColor;
+      console.log(strColor);
+    };    
     var ts = new Date().getTime();
     var timer = setTimeout(addNum(ts),1000);    
     function addNum(ts){
