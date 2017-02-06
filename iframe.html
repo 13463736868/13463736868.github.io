@@ -28,8 +28,7 @@
       }
       .blue .div1{
         background-color:blue;
-      }
-    </style>
+      }    </style>
   </head>
   <body class="color">
     <div class="div2"></div>
@@ -90,7 +89,7 @@
     window.addEventListener('hashchange',GetColor());
     function GetColor(){
       var strColor = location.hash.substring(1);    
-      body.className = strColor;
+      body.setAttribute('class',strColor);
       console.log(strColor);
     };    
     var ts = new Date().getTime();
