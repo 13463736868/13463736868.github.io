@@ -87,17 +87,10 @@
     var body = document.querySelector('body');
     window.onhashchange=function() {
       var strColor = location.hash.substring(1);    
-      console.log(body.getAttribute('className'));
-      body.setAttribute('className',strColor);
+      console.log(body.getAttribute('class'));
+      body.setAttribute('class',strColor);
       console.log(strColor);
-    };
-    window.addEventListener('hashchange',GetColor());
-    function GetColor(){
-      var strColor = location.hash.substring(1);    
-      console.log(body.getAttribute('className'));
-      body.setAttribute('className',strColor);
-      console.log(strColor);
-    };    
+    };   
     var ts = new Date().getTime();
     var timer = setTimeout(addNum(ts),1000);    
     function addNum(ts){
