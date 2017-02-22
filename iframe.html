@@ -100,7 +100,7 @@
         console.log(strColor,'addEventListener');
       });
     }else if(window.attachEvent){
-      window.attachEvent('hashchange',function(){
+      window.attachEvent('onhashchange',function(){
         var strColor = location.hash.substring(1);    
         // console.log(body.getAttribute('class'));
         body.setAttribute('class',strColor);
