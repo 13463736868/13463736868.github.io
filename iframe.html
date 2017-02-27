@@ -28,11 +28,18 @@
       }
       .blue .div1{
         background-color:blue;
-      }    </style>
+      }
+      .mask{
+        width:100%;
+        height:100%;
+        background:#bdbdbd;
+        z-index:10;
+      }
+    </style>
   </head>
   <body class="color">
     <div class="div2"></div>
-    <button>I Do</button>
+    <button class="btn1">I Do</button>
     <div class="div1">
       <span>仍然倚在失眠夜 望天边星宿</span><br>
       <span>仍然听见小提琴如泣似诉再挑逗</span><br><br>
@@ -77,6 +84,7 @@
     console.log(location.hash);
     var div1 = document.querySelector('.div1');
     var div2 = document.querySelector('.div2');
+    var btn1 = document.querySelector('.btn1');
     // var str = location.search.substring(1);
     // strArr = str.split('&'); 
     // for(var i = 0,len=strArr.length;i < len;i ++){
@@ -114,6 +122,14 @@
     function addNum(ts){
       div2.innerHTML = ts;
       clearTimeout(timer);
+    }
+
+    btn1.onclick = function(){
+      var mask = document.createElement("div");
+      mask.addClass('mask');
+      mask.onclick = function(){
+        document.removeElement(mask);
+      }
     }
   </script>
 </html>
