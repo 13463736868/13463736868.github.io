@@ -133,6 +133,7 @@
       mask.onclick = function(){
         body.removeChild(this);
         console.log(222);
+        console.log(window.parent.document.getElementsByClass('top-bar')[0].innerHTML);
       }
       body.appendChild(mask);
     }
