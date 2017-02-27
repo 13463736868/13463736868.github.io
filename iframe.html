@@ -131,7 +131,7 @@
       var mask = document.createElement("div");
       mask.className = 'mask';
       mask.onclick = function(){
-        document.removeChild(mask);
+        body.removeChild(this);
         console.log(222);
       }
       body.appendChild(mask);
