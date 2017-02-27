@@ -130,7 +130,8 @@
     btn1.onclick = function(){
       var mask = document.createElement("div");
       mask.className = 'mask';
-      mask.onclick = function(){
+      var maskDiv = document.querySelector('.mask');
+      maskDiv.onclick = function(){
         document.removeElement(this);
       }
       body.appendChild(mask);
