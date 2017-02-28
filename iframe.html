@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link src="layer/mobile/need/layer.css"></link>
+    <!-- <link src="layer/mobile/need/layer.css"></link> -->
     <title>page2</title>
     <style>
       *{
@@ -82,7 +82,7 @@
     </div>
   </body>
   <script src="js/jquery1.83.min.js"></script>
-  <script src="layer/layer.js"></script>
+  <!-- <script src="layer/layer.js"></script> -->
   <script>
     //console.log(location);
     console.log(location.href);
@@ -130,16 +130,16 @@
       clearTimeout(timer);
     }
 
-    // btn1.onclick = function(){
-    //   var mask = document.createElement("div");
-    //   mask.className = 'mask';
-    //   mask.onclick = function(){
-    //     body.removeChild(this);
-    //     console.log(222);
-    //     console.log(window.parent);
-    //   }
-    //   body.appendChild(mask);
-    // }
+    btn1.onclick = function(){
+      var mask = document.createElement("div");
+      mask.className = 'mask';
+      mask.onclick = function(){
+        body.removeChild(this);
+        console.log(222);
+        console.log(window.parent);
+      }
+      body.appendChild(mask);
+    }
     //(function(){
       // var index = parent.layer.getFrameIndex(window.name);
       // $('.btn1').on('click',function(){
