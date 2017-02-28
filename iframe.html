@@ -146,13 +146,14 @@
     }
     function maskStatus(status) {
       if($('#iframeH').length > 0){
-        $('#iframeH').remove();
+        $('#iframeH').attr('src','http://127.0.0.1/ceshi2.html?t='+ts+'&maskStatus=#'+status+'');
+      }else{
+        var iframeH = '';
+        iframeH = "<iframe id=\"iframeH\" frameborder=\"0\" width=\"0\" height=\"0\"";
+        iframeH += "src='http://127.0.0.1/ceshi2.html?t="+ts+"&maskStatus=#"+status+"'";
+        iframeH += "></iframe>";
+        $('body.color').append(iframeH);
       }
-      var iframeH = '';
-      iframeH = "<iframe id=\"iframeH\" frameborder=\"0\" width=\"0\" height=\"0\"";
-      iframeH += "src='http://127.0.0.1/ceshi2.html?t="+ts+"&maskStatus=#"+status+"'";
-      iframeH += "></iframe>";
-      $('body.color').append(iframeH);
     }
   </script>
 </html>
