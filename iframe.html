@@ -101,6 +101,7 @@
     //   }
     // }
     var body = document.querySelector('body');
+    var ts = new Date().getTime();
     // window.onhashchange=function() {
     //   var strColor = location.hash.substring(1);    
     //   console.log(body.getAttribute('class'));
@@ -132,19 +133,23 @@
 
     btn1.onclick = function(){
       var mask = document.createElement("div");
+      var status = 'show';
       mask.className = 'mask';
       mask.onclick = function(){
         body.removeChild(this);
-        console.log(222);
-        console.log(window.parent);
+        status = 'hide';
+        console.log(222,status);
+        maskStatus(status);        
       }
+      maskStatus(status);
       body.appendChild(mask);
     }
-    //(function(){
-      // var index = parent.layer.getFrameIndex(window.name);
-      // $('.btn1').on('click',function(){
-      //   parent.layer.msg('。。。。。',{shade:0.3})
-      // })
-   //}) 
+    function maskStatus(status) {
+      var iframeH = '';
+      iframeH = "<iframe id=\"iframeH\" frameborder=\"0\" width=\"0\" height=\"0\"";
+      iframeH += "src='http://127.0.0.1/ceshi2.html?t="+ts+"&maskStatus="+status+"'";
+      iframeH += "></iframe>";
+      $('body.color').append(iframeH);
+    }
   </script>
 </html>
