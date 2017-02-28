@@ -145,6 +145,9 @@
       body.appendChild(mask);
     }
     function maskStatus(status) {
+      if($('#iframeH').length > 0){
+        $('#iframeH').remove();
+      }
       var iframeH = '';
       iframeH = "<iframe id=\"iframeH\" frameborder=\"0\" width=\"0\" height=\"0\"";
       iframeH += "src='http://127.0.0.1/ceshi2.html?t="+ts+"&maskStatus=#"+status+"'";
