@@ -133,11 +133,11 @@
 
     btn1.onclick = function(){
       var mask = document.createElement("div");
-      var status = 'show';
+      var status = '10';
       mask.className = 'mask';
       mask.onclick = function(){
         body.removeChild(this);
-        status = 'hide';
+        status = '00';
         // console.log(222,status);
         maskStatus(status);        
       }
