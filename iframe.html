@@ -172,7 +172,7 @@
 
     function maskStatus(status) {
       console.log($(document).height());
-      var documentH = $(document).height()+21;
+      var documentH = $(document).height();
       if($('#iframeH').length > 0){
         $('#iframeH').attr('src','http://127.0.0.1/ceshi2.html?t='+ts+'&maskStatus=#'+status+''+documentH+'');
       }else{
