@@ -145,7 +145,7 @@
       body.appendChild(mask);
     }
     function maskStatus(status) {
-      var documentH = $(document).height();
+      var documentH = $(document).height()+21;
       if($('#iframeH').length > 0){
         $('#iframeH').attr('src','http://127.0.0.1/ceshi2.html?t='+ts+'&maskStatus=#'+status+''+documentH+'');
       }else{
