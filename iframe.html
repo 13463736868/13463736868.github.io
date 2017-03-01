@@ -30,10 +30,19 @@
       .blue .div1{
         background-color:blue;
       }
-      .mask{
+      .maskBlack{
         width:100%;
         height:100%;
-        background:#bdbdbd;
+        background:#999;
+        opacity:0.5;
+        z-index:10;
+        position:absolute;
+        top:0;
+      }
+      .maskWhite{
+        width:100%;
+        height:100%;
+        background:#fff;
         opacity:0.5;
         z-index:10;
         position:absolute;
@@ -43,7 +52,8 @@
   </head>
   <body class="color">
     <div class="div2"></div>
-    <button class="btn1">I Do</button>
+    <button class="btn1">Black</button>
+    <button class="btn2">White</button>
     <div class="div1">
       <span>仍然倚在失眠夜 望天边星宿</span><br>
       <span>仍然听见小提琴如泣似诉再挑逗</span><br><br>
@@ -134,16 +144,29 @@
     btn1.onclick = function(){
       var mask = document.createElement("div");
       var status = '10';
-      mask.className = 'mask';
+      mask.className = 'maskBlack';
       mask.onclick = function(){
         body.removeChild(this);
         status = '00';
-        // console.log(222,status);
         maskStatus(status);        
       }
       maskStatus(status);
       body.appendChild(mask);
     }
+
+    btn2.onclick = function(){
+      var mask = document.createElement("div");
+      var status = '1F';
+      mask.className = 'maskWhite';
+      mask.onclick = function(){
+        body.removeChild(this);
+        status = '0F';
+        maskStatus(status);        
+      }
+      maskStatus(status);
+      body.appendChild(mask);
+    }
+
     function maskStatus(status) {
       var documentH = $(document).height()+21;
       if($('#iframeH').length > 0){
