@@ -148,6 +148,7 @@
       var mask = document.createElement("div");
       var status = '10';
       mask.className = 'maskBlack';
+      mask.style.height = $(document).height() + 'px';
       mask.onclick = function(){
         body.removeChild(this);
         status = '00';
@@ -161,6 +162,7 @@
       var mask = document.createElement("div");
       var status = '1F';
       mask.className = 'maskWhite';
+      mask.style.height = $(document).height() + 'px';
       mask.onclick = function(){
         body.removeChild(this);
         status = '0F';
