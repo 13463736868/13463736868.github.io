@@ -178,11 +178,11 @@
     function maskStatus(status) {
       var documentH = $(document).height();
       if($('#iframeH').length > 0){
-        $('#iframeH').attr('src','http://127.0.0.1/ceshi2.html?t='+ts+'&maskStatus=#'+status+''+documentH+'');
+        $('#iframeH').attr('src','http://127.0.0.1/transfer.html?t='+ts+'&maskStatus=#'+status+''+documentH+'');
       }else{
         var iframeH = '';
         iframeH = "<iframe id=\"iframeH\" frameborder=\"0\" width=\"0\" height=\"0\" style='display:none'";
-        iframeH += "src='http://127.0.0.1/ceshi2.html?t="+ts+"&maskStatus=#"+status+""+documentH+"'";
+        iframeH += "src='http://127.0.0.1/transfer.html?t="+ts+"&maskStatus=#"+status+""+documentH+"'";
         iframeH += "></iframe>";
         $('body.color').append(iframeH);
       }
