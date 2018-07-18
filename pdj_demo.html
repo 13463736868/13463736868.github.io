@@ -16,7 +16,7 @@
         }
         ._box{
             width: 600px;
-            height: 800px;
+            height: 770px;
             margin: 20px auto;      
         }
         .pdfBox{
@@ -53,9 +53,6 @@
             float: left;
             font-size: 20px;            
         }
-        #viewerContainer{
-            overflow: hidden;
-        }
     </style>
 </head>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
@@ -86,77 +83,77 @@
             PDFJS_URL: "http://mozilla.github.io/pdf.js/web/viewer.html"
 	};
     PDFObject.embed('compressed.tracemonkey-pldi-09.pdf','#pdfBox',options);
-    var _TOP = 0,
-        _switch = 'false';
-    window.onscroll = function(){
-        _TOP = document.documentElement.scrollTop + document.body.scrollTop;
-    }
-    $('._box').on('mousemove',function(e){
-        if(_switch === 'true'){
-            e.preventDefault();
-            return;
-        }
-        var _l = $('._box').offset().left,
-            _t = $('._box').offset().top,
-            _BObj = $('._box'),
-            s_BObj = $('.s_box'),
-            _w = _BObj.width(),
-            _h = _BObj.height(),
-            s_w = s_BObj.width() + 10,
-            s_h = s_BObj.height() + 10,
-            s_l = e.clientX - _l,
-            s_t = e.clientY + _TOP - _t;
+    // var _TOP = 0,
+    //     _switch = 'false';
+    // window.onscroll = function(){
+    //     _TOP = document.documentElement.scrollTop + document.body.scrollTop;
+    // }
+    // $('._box').on('mousemove',function(e){
+    //     if(_switch === 'true'){
+    //         e.preventDefault();
+    //         return;
+    //     }
+    //     var _l = $('._box').offset().left,
+    //         _t = $('._box').offset().top,
+    //         _BObj = $('._box'),
+    //         s_BObj = $('.s_box'),
+    //         _w = _BObj.width(),
+    //         _h = _BObj.height(),
+    //         s_w = s_BObj.width() + 10,
+    //         s_h = s_BObj.height() + 10,
+    //         s_l = e.clientX - _l,
+    //         s_t = e.clientY + _TOP - _t;
          
-        if(s_l <= s_w / 2){
-            s_l = 0;
-        }else if(s_l <= _w - (s_w / 2) - 17){
-            s_l = s_l - s_w / 2;
-        }else{
-            s_l = _w - s_w - 17;
-        }
-        if(s_t <= s_h / 2){
-            s_t = 0;
-        }else if(s_t <= _h - (s_h / 2)){
-            s_t = s_t - s_h / 2;
-        }else{
-            s_t = _h - s_h;
-        }
-        s_BObj.css({'left':s_l + 'px','top':s_t + 'px'});
-    })
+    //     if(s_l <= s_w / 2){
+    //         s_l = 0;
+    //     }else if(s_l <= _w - (s_w / 2) - 17){
+    //         s_l = s_l - s_w / 2;
+    //     }else{
+    //         s_l = _w - s_w - 17;
+    //     }
+    //     if(s_t <= s_h / 2){
+    //         s_t = 0;
+    //     }else if(s_t <= _h - (s_h / 2)){
+    //         s_t = s_t - s_h / 2;
+    //     }else{
+    //         s_t = _h - s_h;
+    //     }
+    //     s_BObj.css({'left':s_l + 'px','top':s_t + 'px'});
+    // })
 
-    $('._box').on('mouseleave',function(e){
-        if(_switch === 'true'){
-            e.preventDefault();
-            return;
-        }
-        $('.s_box').clearQueue().animate({opacity:0},200);
-    })
-    $('._box').on('mouseover',function(e){
-        if(_switch === 'true'){
-            e.preventDefault();
-            return;
-        }
-        $('.s_box').clearQueue().animate({opacity:1},200);
-    })
-    $('._box').on('click',function(){
-        _switch = 'true';
-        var _sl = $('.s_box').css('left'),
-            _st = $('.s_box').css('top'),
-            _vObj = $('._btn').find('span._v');
-        console.log('left: ' + _sl,'top: ' + _st);
-        _vObj.text('left: ' + _sl + ', top: ' + _st);
-    })
-    function chapterMark(status){
-        var _vObj = $('._btn').find('span._v');
-        if(status === 'clear'){
-            _switch = 'false';
-            $('.s_box').css({'opacity': 0});
-            _vObj.text('');
-        }else if(status === 'confirm'){
-            var _sl = $('.s_box').css('left'),
-                _st = $('.s_box').css('top');
-            // console.log('left: ' + _sl,'top: ' + _st);
-        }
-    }
+    // $('._box').on('mouseleave',function(e){
+    //     if(_switch === 'true'){
+    //         e.preventDefault();
+    //         return;
+    //     }
+    //     $('.s_box').clearQueue().animate({opacity:0},200);
+    // })
+    // $('._box').on('mouseover',function(e){
+    //     if(_switch === 'true'){
+    //         e.preventDefault();
+    //         return;
+    //     }
+    //     $('.s_box').clearQueue().animate({opacity:1},200);
+    // })
+    // $('._box').on('click',function(){
+    //     _switch = 'true';
+    //     var _sl = $('.s_box').css('left'),
+    //         _st = $('.s_box').css('top'),
+    //         _vObj = $('._btn').find('span._v');
+    //     console.log('left: ' + _sl,'top: ' + _st);
+    //     _vObj.text('left: ' + _sl + ', top: ' + _st);
+    // })
+    // function chapterMark(status){
+    //     var _vObj = $('._btn').find('span._v');
+    //     if(status === 'clear'){
+    //         _switch = 'false';
+    //         $('.s_box').css({'opacity': 0});
+    //         _vObj.text('');
+    //     }else if(status === 'confirm'){
+    //         var _sl = $('.s_box').css('left'),
+    //             _st = $('.s_box').css('top');
+    //         // console.log('left: ' + _sl,'top: ' + _st);
+    //     }
+    // }
 </script>
 </html>
