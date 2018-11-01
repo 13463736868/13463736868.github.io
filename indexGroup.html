@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>有征科技</title>
+		<link rel="stylesheet" type="text/css" href="yz/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="yz/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="yz/css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="yz/css/swiper-3.4.1.min.css"/>
+		<style type="text/css"> 
+		.boxed{
+			width: 100%;
+			min-width: 1200px;
+			height: 700px;
+			position: relative;
+			background: url(yz/img/beijing.jpg) no-repeat;
+			background-size: cover;
+			cursor: pointer;
+			}
+		.cb-dust__particles{
+			position: absolute; 
+			z-index: 10; 
+			top: 0px; 
+			left: 0px; 
+			width: 100%; 
+			} 
+		/*导航1*/
+		.super_nav_first{
+			width: 100%;
+			min-width: 1200px;
+			height: 76px; 
+			/*border-bottom: 1px solid rgba(255,255,255,0.15); */
+		}
+		.nav_first{
+			width: 1200px;
+			height: 76px;
+			line-height: 76px;
+			margin: 0 auto; 
+		} 
+		.nav_first ul{
+			width: auto;
+			height: 76px;
+			line-height: 76px;
+			float: right;
+		}
+		.nav_first ul li{
+			position: relative;
+			display: inline-block;
+			margin: 0 12px;
+			font-size: 14px;
+			color: #FFFFFF;
+		}
+		.nav_first ul li span{ 
+			display:block;
+		    position:absolute; 
+		    width:0px; 
+		    height:0px; 
+		    background:#FFFFFF;
+		    top:48px;
+		    left:60%;
+		    }
+		
+		/*导航2*/
+		.super_nav_second{
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			top: 0;
+			width: 100%;
+			min-width: 1200px;
+			height: 76px; 
+			background: #FFFFFF; 
+			/*box-shadow:0px 0 0px #FFFFFF,  
+		               0px 0 0px yellow, 
+		               0 0px 0px blue,   
+		               0 5px 5px rgba(0,0,0,0.5);   */
+		}
+		.nav_second{
+			width: 1200px;
+			height: 76px;
+			line-height: 76px;
+			margin: 0 auto; 
+		}
+		.nav_second ul{
+			width: auto;
+			height: 76px;
+			line-height: 76px;
+			float: right;
+		}
+		.nav_second ul li{
+			display: inline-block;
+			margin: 0 12px;
+			font-size: 14px;
+			color: #282828;
+			position: relative;
+		}
+		.nav_second ul li span{ 
+			display:block;
+		    position:absolute; 
+		    width:0px; 
+		    height:0px; 
+		    background:#282828;
+		    top:48px;
+		    left:60%;
+		    }
+		.fullscreen_text{
+			position: absolute;
+			z-index: 100;
+			width: 39%;
+			height: 140px;
+			top: 48%;
+			left: 31%;
+			margin-top: -70px;
+		}
+		/*我们的服务*/
+		.ind_server li{ 
+		    position:relative; 
+		    }
+		.ind_server li span{ 
+			display:block;
+		    position:absolute; 
+		    width:0px; 
+		    height:0px; 
+		    background:#0a72d0;
+		    top:0;
+		    left:0;
+		    }
+		    .nav_top2 {
+		    	width: 80px;
+		    	height: 344px;
+		    	color: #282828;
+		    	font-size: 14px;
+		    	position: fixed;
+		    	right: 40px;
+		    	top: 400px;
+		    	z-index: 999;
+		    }
+		    .nav_top2 li{
+		    	width: 20px;
+		    	height: 20px;
+		    	background: url(yz/img/yuan1.png) center no-repeat;
+		    	background-size:cover ;
+		    	border-radius:50% ;
+		    	margin:20px auto;
+		    	cursor: pointer;
+		    }
+		    .nav_top2 .oli{
+		    	background: url(yz/img/yuan2.png) center no-repeat;
+		    	background-size:cover ;
+		    }
+		    .nav_top3 .ali{
+		    	color: #62a7f5;
+		    }
+		    /*swiper*/
+		   #outer {
+		   		position:relative;
+				overflow:hidden;
+			    width: 100%;
+			    height: 200px;
+			}
+			#inner{
+				position:absolute;
+				left:0;
+				top:0;
+				overflow:hidden;
+				width:2600px;
+				height:200px;
+			} 
+			.swiper-slide{
+				width: 240px;
+				height: 200px;
+				float: left;
+			}
+			.swiper-slide img{
+				display: block;
+				width: 66px;
+				height: 66px;
+				margin: 54px auto;
+			} 
+			.swiper-slide h4{
+				width: 100%;
+				font-size: 18px;
+				text-align: center;
+				color: #FFFFFF;
+				font-weight: 100;
+			}
+			.all_wrap{
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: #FFFFFF;
+				z-index: 9999;
+				text-align: center;
+				line-height: 300px;
+				font-size: 36px;
+				display: none;
+			}
+			.he_logo{
+				width: 100px;
+			}
+		</style> 
+	</head>
+	<body>
+		<ul class="nav_top2 nav_top">
+		  	<li class="oli"></li>
+		  	<li></li>
+		  	<li></li>
+		  	<li></li>
+		  	<li></li>
+		  	<li></li>
+		  	<li></li> 
+		</ul>
+		<!--满屏效果-->
+		<div class="w_wrap">
+			<div class="boxed">
+				<div class="cb-dust__particles" id="cb-dust-particles" style="height: 1000px;">
+				<canvas class="particles-js-canvas-el" style="height: 700px;"></canvas>
+				
+				<!--导航1-->
+				<div class="super_nav_first">
+				 <div class="nav_first">
+				  <img class="he_logo" src="yz/img/logo_fff.png"/>
+				  <b style="float: right;font-size: 14px;cursor: default;margin-left: 12px;color: #fff;"> 商务合作 : <span>010-64398996</span></b>
+				  <ul class="nav_top">
+				  	<li> 有       征 <span></span></li>
+				  	<li> 有征优势<span></span> </li>
+				  	<li> 应用场景 <span></span></li>
+				  	<li> 服务内容 <span></span></li>
+				  	<li> 合作机构 <span></span></li>
+				  	<li> 加入我们 <span></span></li>
+				  	<li> 关于我们 <span></span></li> 
+				  </ul>
+				 </div>
+				</div>
+				<!--导航1-end-->
+				
+				<!--导航2-->
+				<div class="super_nav_second">
+				 <div class="nav_second">
+				  <img class="he_logo" src="yz/img/logo.png"/>
+				  <b style="float: right;font-size: 14px;cursor: default;margin-left: 12px;color: #333;"> 商务合作 : <span>010-64398996</span></b>
+				  <ul class="nav_top nav_top3">
+				  	<li> 有        征<span></span></li>
+				  	<li> 有征优势<span></span></li>
+				  	<li> 应用场景 <span></span></li>
+				  	<li> 服务内容<span></span></li>
+				  	<li> 合作机构<span></span> </li>
+				  	<li> 加入我们 <span></span></li>
+				  	<li> 关于我们<span></span></li>
+				  </ul>
+				 </div>
+				</div>
+				<!--导航2-end-->
+				
+				
+				<div class="fullscreen_text" id="b1">
+				 <h2 class="fullscreen_h2">有 征 科 技<br/> U S I N G </h2>
+				 <p class="fullscreen_p"> 君 子 之 言&nbsp;&nbsp;&nbsp;&nbsp;信 而 有 征 </p>
+				</div>
+			    </div>
+			</div>
+			<!--满屏效果end-->
+		</div>
+		<div class="w_wrap">
+			<div class="w">
+				<div class="modular">
+					<div class="ind_title">
+						<h3>有征优势</h3>
+						<p>有效解决债务纠纷，多、快、好、省</p>
+					</div>
+					<div class="ind_ul_wrap">
+						<li>
+							<div class="ind_ul_img">
+								<img src="yz/img/1_15.png" alt="" />
+							</div>
+							<h4>多</h4>
+							<p>
+								无论案件标的额大小。由于司法资源有限，现代金融领域的海量纠纷想通过传统法律程序解决确权问题事实上无法实现。有征系统服务通过前置电子证据固化，仲裁委智能平台对接，有效解决了争议案件批量申请、批量仲裁的问题。
+							</p>
+						</li>
+						<li>
+							<div class="ind_ul_img">
+								<img src="yz/img/3.png" alt="" />
+							</div>
+							<h4>快</h4>
+							<p>
+								快速认定权责，有效缩短逾期债务处理周期，降低用户纠纷解决过程的时间成本。
+
+							</p>
+						</li>
+						<li>
+							<div class="ind_ul_img">
+								<img src="yz/img/11.png" alt="" />
+							</div>
+							<h4>好</h4>
+							<p>
+								有征系统帮助客户拿到仲裁书后，该仲裁书一裁终局故不存在上诉问题。仲裁的管辖不存在地域性，仲裁文书却可以跨省执行，以人民法院的强制执行的力量保障了最终的执行效果。
+							</p>
+						</li>
+						<li>
+							<div class="ind_ul_img">
+								<img src="yz/img/33.png" alt="" />
+							</div>
+							<h4>省</h4>
+							<p>
+								有征系统帮助进行客户网络仲裁，节约成本，节省时间。
+							</p>
+						</li>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="w_wrap w_wrap1" >
+			<div class="w">
+				<div class="ind_title" style="color: #FFFFFF;">
+					<h3 style="margin-top:90px ;">应用场景 </h3>
+				</div>
+				<!--<div class="yingyong_bot">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="yz/img/shuzizichan.png"/>
+								<h4>数字资产</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/gongyinglian.png"/>
+								<h4>供应链金融</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/yiliaofuwu.png"/>
+								<h4>医疗服务</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/suyuanxitong.png"/>
+								<h4>溯源系统</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/zhaiquanzichan.png"/>
+								<h4>债券资产</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/fenxiangjingji.png"/>
+								<h4>分享经济</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/gongyiyingyong.png"/>
+								<h4>公益应用</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/baoxianlingyu.png"/>
+								<h4>保险领域</h4>
+							</div>
+							<div class="swiper-slide">
+								<img src="yz/img/zhongchou.png"/>
+								<h4>股权众筹</h4>
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<div id="outer" style="margin-top: 80px;">
+					<div id="inner2">
+						<div class="swiper-slide">
+							<img src="yz/img/gongyinglian.png"/>
+							<h4>互联网金融</h4>
+						</div>
+						<div class="swiper-slide">
+							<img src="yz/img/fenxiangjingji.png"/>
+							<h4>银行领域</h4>
+						</div>
+						<div class="swiper-slide">
+							<img src="yz/img/suyuanxitong.png"/>
+							<h4>电子商务</h4>
+						</div>
+						<div class="swiper-slide">
+							<img src="yz/img/baoxianlingyu.png"/>
+							<h4>保险领域</h4>
+						</div>
+						<div class="swiper-slide">
+							<img src="yz/img/zhaiquanzichan.png"/>
+							<h4>债券领域</h4>
+						</div>
+					</div>
+				</div>
+				<div class="yingyong_fot">
+					<!--获得效果：创新用户场景、降低运维成本、提高业务效率、信任倍增。结合不同应用场景的各个合作方形成合力与协调机制，整合区块链资源。针对成员间业
+务逻辑的差异，区块链将会根据具体情况度身定制不同的业务应用方案。公司将基于区块链的多中心化、防篡改等特性，打造值得信任的服务，为各行业在互
+联网上的业务开展提供了坚实可靠的安全基础和透明可信的服务。-->
+				</div>
+				
+			</div>
+		</div>
+		<div class="w_wrap w_wrap2" >
+			<div class="w">
+				<div class="ind_title">
+					<h3 style="margin-top:90px ;">服务内容 </h3>
+					<!--<p>我们以用户的需求主导产品研发,提供开发高性能、高可扩展性、高可控的区块链底层技术</p>-->
+				</div>
+				<div class="ind_server ">
+					<li>
+						<span></span>
+						<img src="yz/img/tu1.jpg"/>
+						<h3>
+							互联网仲裁
+						</h3>
+						<div class="chan_bot">
+							<p>通过电子证据固化、一键纠纷仲裁</p>
+							<p>快速认定权责，有效缩短逾期债务处理周期</p>
+						</div>
+					</li>
+					<li>
+						<span></span>
+						<img src="yz/img/tu2.jpg"/>
+						<h3>
+							失联修复
+						</h3>
+						<div class="chan_bot">
+							<p>依据联通大数据对失联人员进行信息修复</p>
+							<p>精准触达债务人，辅助客户减少资产损失</p>
+						</div>
+					</li>
+					<li>
+						<span></span>
+						<img src="yz/img/tu3.jpg"/>
+						<h3>
+							智能催收
+						</h3>
+						<div class="chan_bot">
+							<p>根据用户逾期记录、仲裁判决书信息，<br/>自动、智能的进行催收</p>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+		<div class="w_wrap w_wrap_3">
+			<div class="w">
+				<div class="ind_title" style="color: #FFFFFF;">
+					<h3>合作机构</h3>
+					<!--<p>交易、存证与证伪、账户、其他不可更改数据存储；供应链溯源、数字资产发行、股权众筹；</p>-->
+				</div>
+				<div class="ind_neirong">
+					<li>
+						<img src="yz/img/lt.png"/>
+						<div class="neirong_bot">
+							<p>中国联通</p>
+						</div>
+					</li>
+					<li>
+						<img src="yz/img/cfca.png"/>
+						<div class="neirong_bot">
+							<p>中国金融认证中心</p>
+						</div>
+					</li>
+					<li>
+						<img src="yz/img/gzzc.png"/>
+						<div class="neirong_bot neirong_bot1">
+							<p>中国广州仲裁委员会</p>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+		<div class="w_wrap" style="background: #f0f2f8;">
+			<div class="w">
+				<div class="ind_title">
+					<h3>加入我们 </h3>
+					<p>如果您对我们的职位感兴趣，请将您的简历发送至<a href="mailto:hr@youzhengkeji.com" target="_top">hr@youzhengkeji.com</a>我们会尽快联系您。</p>
+				</div>
+				<div class="ind_join">
+					<ul>
+						<li>
+							<h4><span style="font-weight: 900;">商务助理</span></h4>
+						</li>
+						<li>
+							<h4><span>工作需求</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>参与制定产品宣传和服务的推广，策划和组织专题性公众活动，并对其进行评估</p>
+							</div>
+						</li>
+						<li>
+							<h4><span>岗位职责</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>1、沟通、协调组织与重要公众的关系</p>
+								<p>2、维护与客户的良好关系以及建立持久联系，不断拓宽现有客户的产品渠道，丰富业务内容</p>
+							</div>
+						</li>
+						<li>
+							<h4><span>任职要求</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>1、大专及以上学历，熟悉办公自动化</p>
+								<p>2、善与人沟通，有较强谈判能力</p>
+								<p>3、性格细心严谨，稳重塌实，有事业心</p>
+								<p>4、有团队合作意识和敬业精神</p>
+							</div>
+						</li>
+						
+					</ul>
+					<ul>
+						<li>
+							<h4><span style="font-weight: 900;">法务</span></h4>
+						</li>
+						<li>
+							<h4><span>工作需求</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>负责管理公司法律事务和安全保卫工作，保障公司合法权益和安全</p>
+							</div>
+						</li>
+						<li>
+							<h4><span>岗位职责</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>1、法务管理制度的建立与维护</p>
+								<p>2、建立并完善公司法务工作的管理制度、配套表格及工作流程</p>
+								<p>3、协同合约商务部起草、审核、修改、完善合同模板、制度配套表格</p>
+								<p>4、促进公司各职能部门、下属公司依据法务管理制度及流程工作</p>
+								<p>5、促进公司依法经营，预防和控制公司经营中的风险</p>
+							</div>
+						</li>
+						<li>
+							<h4><span>任职要求</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>1、法律、法学相关专业，应通过国家司法考试，取得律师执业资格</p>
+								<p>2、熟悉掌握各类法律法规知识，熟练运用各类法律技巧</p>
+								<p>3、熟悉公司合同管理体系和法律风险控制流程；具有诉讼仲裁、调解等实践经验</p>
+								<p>4、具有较好的逻辑思维和抗压能力</p>
+								<p>5、具有良好的应变能力、分析能力、沟通交流能力、协调配合能力及文字表达能力</p>
+							</div>
+						</li>
+						
+					</ul>
+					<ul>
+						<li>
+							<h4><span style="font-weight: 900;">高级Java开发</span></h4>
+						</li>
+						<li>
+							<h4><span>工作需求</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>负责代码的重构和性能优化，确保线上服务的稳定性和架构合理性 </p>
+							</div>
+						</li>
+						<li>
+							<h4><span>岗位职责</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>1、参与项目的设计和分析，完成相应功能的设计、开发、自测等工作 </p>
+								<p>2、确保开发的功能模块能够通过测试，平稳上线，保证系统的正常运营</p>
+							</div>
+						</li>
+						<li>
+							<h4><span>任职要求</span><img class="add" src="yz/img/jia.png"/><img class="even" src="yz/img/jian.png"/></h4>
+							<div class="join_bot">
+								<p>1. 五年以上java开发工作经验 </p>
+								<p>2. 熟悉maven项目管理工具 </p>
+								<p>3. 熟悉spring mvc、mybatis、redis、rabbitMQ、dubbo、等开发框架</p>
+								<p>4. 掌握Java服务端研发，了解多线程和JVM原理</p>
+								<p>5. 有fabric相关经验的优先</p>
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="w_wrap w_wrap_4">
+			<div class="w">
+				<div class="ind_title" style="color: #FFFFFF;">
+					<h3>关于我们</h3>
+					<!--<p>有征 USING，互联网仲裁平台。</p>-->
+				</div>
+				<div class="ind_us">
+					<!--<img class="us_inner" src="yz/img/1.png"/>
+					<div class="us_top">
+						<img src="yz/img/light45.png"/>
+					</div>
+					<div class="us_left">
+						<p>快速认定权责</p>
+					</div>
+					<div class="us_right">
+						<p>有效缩短逾期债务处理周期</p>
+					</div>-->
+					<div class="us_bottom">
+						<p>北京有征科技公司，公司名称取自左传“君子之言，信而有征”。
+有征科技主要服务金融行业中大型机构，通过区块链技术对交易数据进行存贮，从而在信贷等金融业务发生时即实现电子证据的固化，极大的提高了金融行业在纠纷解决、坏账处理方面的行业痛点。
+同时，有征科技还通过与多家机构合作，完整的为互联网金融等新兴金融机构提供贷前风控、贷中监控、贷后处置等全方面金融行业信贷风控解决方案，为新兴的金融行业建立了良好的风控保障。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="w_wrap foot">
+			<div class="w">
+				<div class="foot_left">
+					<!--<div class="foot_left_le">
+						<img src="yz/img/erweima.png"/>
+						<p>微信公众号：有征</p>
+					</div>-->
+					<div class="foot_left_ri">
+						<h3>联系邮箱：</h3>
+						<p><a href="javascript:void(0)" style="color: #fff;">market@youzhengkeji.com</a></p>
+						<h3>联系地址：</h3>
+						<p>北京市朝阳区望京东园四区13号浦项中心B座5层5A</p>
+					</div>
+				</div>
+				<!--<img class="foot_right" src="yz/img/logo.png" alt="" />-->
+			</div>
+		</div>
+		<div class="w_wrap foot_bot">
+			<div class="w ">
+				版权所有© 2017-有征科技有限公司  <ins><a style="color: #a6a6a6;" href="http://www.youzhengkeji.com" target="_blank">www.youzhengkeji.com</a></ins>&nbsp;&nbsp;京ICP备17066730号-1
+			</div>
+		</div>
+		<div class="all_wrap">
+			亲爱的用户，您当前浏览器版本过低，请您升级后再次访问，谢谢！
+		</div>
+		<script src="yz/js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="yz/js/layout.js" type="text/javascript" charset="utf-8"></script>
+		<script src="yz/js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var browser=navigator.appName
+			var b_version=navigator.appVersion
+			var version=b_version.split(";");
+			var trim_Version=version[1].replace(/[ ]/g,"");
+			if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0")
+			{
+			    $(".all_wrap").css("display","block");
+			}
+			    else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0")
+			{
+			    $(".all_wrap").css("display","block");
+			}else{
+				$(".all_wrap").css("display","none");
+			}
+			</script>
+			<script type="text/javascript">
+//				$.ajax({
+//					type:"post",
+//					url:"http://192.168.100.185:7080/user/login",
+//					 data: {
+//		                'account': 123456,
+//		                'password': 123456,
+//		            },
+//					async:true,
+//					success: function (res) {
+//						console.log(res)
+//					},
+//		            error: function (err,b,c) {
+//		            	console.log(err)
+//		            	console.log(b)
+//		            	console.log(c)
+//		            }
+//					});
+			</script>
+	</body>
+
+</html>

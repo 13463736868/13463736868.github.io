@@ -1,0 +1,35 @@
+.content {
+  background: #fff;
+}
+.content .banner {
+  background: url(../img/banner.png) no-repeat center center;
+  background-size:100%;
+  min-width:1180px;
+}
+._content {
+  width: 1180px;
+  padding: 3rem 0;
+  margin: 0 auto;
+}
+._content p {
+  font-size: 0.6rem;
+  text-align: center;
+  color: #5aa8d8;
+}
+.content .bannerB {
+  background: url(../img/banner2.png) no-repeat center center;
+  background-size:100%;
+  min-width:1180px;
+}
+.content .bannerB ul {
+  width: 1180px;
+  padding: 3.5rem 0;
+  margin: 0 auto;
+}
+.content .bannerB ul li {
+  height: 2rem;
+  line-height: 2rem;
+}
+.content .bannerB ul li span {
+  color: #038bde;
+}
