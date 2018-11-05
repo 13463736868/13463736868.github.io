@@ -13,6 +13,7 @@
   </style>
 </head>
 <script type="text/javascript" src="ycwl/style/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="ycwl/style/page/pages.js"></script>
 <script type="text/javascript" src="ycwl/js/mock.js"></script>
 <body>
   <div id="header" class="header">
@@ -250,10 +251,14 @@
           </div>
         </div>
         <div class="_ivew none _four">
-          <div class="_ct p30">
+          <div class="_ct p30 pr">
             <p class="tc f24 pt10 pb20 color_r">第五届盐城仲裁委员会仲裁员名册</p>
             <p class="h2 bga"></p>
             <p class="f15 pt20 t2 fb">根据《中华人民共和国仲裁法》和《盐城仲裁委员会仲裁规则》的规定，经第五届盐城仲裁委员会第一次会议决定，聘任下列313名同志作为第五届盐城仲裁委员会仲裁员，按姓氏笔画排序。</p>
+            <div class="mt10 tr">
+              <span class="f16">搜索：</span>
+              <input class="_input" type="text" name="_search" placeholder="请输入姓名 / 专业...">
+            </div>
             <table class="_table mt20 f14 tc">
               <thead>
                 <tr>
@@ -266,6 +271,7 @@
               <tbody class="_tbody">
               </tbody>
             </table>
+            <div id="pagination" class="clearfix mt10 pr"></div>
           </div>
         </div>
         <div class="_ivew none _five">
@@ -290,6 +296,24 @@
   </div>
 </body>
 <script type="text/javascript">
+  var Manager = {
+    data: {
+      pageNow: 1,
+      pageCount: 0,
+      pageSize: 10
+    }
+  }
+
+  $('#content input[name=_search]').on('input',function(e){
+    var _this = $(this);
+      _last = e.timeStamp;
+      setTimeout(function(){
+        if(_last - e.timeStamp === 0){
+          Manager.data.pageNow = 1;
+          resData('arbiList');
+        }
+      },1000)
+  })
 
   $('#content input[name=_cost]').on('input',function(e){
     var _this = $(this);
@@ -406,11 +430,49 @@
         resAjax(type).then(res => {
           var _data = res.data,
               _obj = $('#content').find('.nav_view ._four ._table ._tbody'),
-              _html = '';
+              _pageObj = $('#pagination'),
+              _html = '',
+              search = $('#content').find('.nav_view ._four input[name=_search]').val().trim(),
+              dataNum = 0,
+              min = (Manager.data.pageNow - 1) * Manager.data.pageSize,
+              max = Manager.data.pageNow * Manager.data.pageSize,
+              minNum = 0;
           for (var k in _data) {
-            _html += '<tr><td>' + (k - 0 +  1) + '</td><td>' + _data[k].name + '</td><td>' + _data[k].specialty + '</td><td>' + _data[k].workPlace + '</td></tr>'
+            if (search === '') {
+              if (dataNum < max && dataNum >= min) {
+                _html += '<tr><td>' + (k - 0 +  1) + '</td><td>' + _data[k].name + '</td><td>' + _data[k].specialty + '</td><td>' + _data[k].workPlace + '</td></tr>'
+              }
+              dataNum++
+            } else {
+              if ( _data[k].name.indexOf(search) !== -1 || _data[k].specialty.indexOf(search) !== -1) {
+                if (dataNum < max && dataNum >= min) {
+                  _html += '<tr><td>' + (minNum - 0 +  1) + '</td><td>' + _data[k].name + '</td><td>' + _data[k].specialty + '</td><td>' + _data[k].workPlace + '</td></tr>'
+                }
+                minNum++
+                dataNum++
+              }
+            }
           }
-          _obj.html(_html)
+          Manager.data.pageCount = Math.ceil(dataNum / Manager.data.pageSize)
+          _pageObj.pagination({
+            currentPage: Manager.data.pageNow,
+            totalPage: Manager.data.pageCount,
+            count: 5,
+            homePageText: "首页",
+            endPageText: "尾页",
+            prevPageText: "上一页",
+            nextPageText: "下一页",
+            callback: function(current) {
+              Manager.data.pageNow = current;
+              resData('arbiList');
+            }
+          });
+          _pageObj.append('<span class="ui-pagination-container-span">共<b>[ ' + dataNum + ' ]</b> 条记录&nbsp;&nbsp;<b>'+ Manager.data.pageNow +'/'+ Manager.data.pageCount + '</b> 页</span>');
+          if (dataNum === 0) {
+            _obj.html('<tr><td scope="row"colspan="4"class="tc">暂无数据</td></tr>')
+          } else {
+            _obj.html(_html)
+          }
         }).catch(e => {
           alert(e)
         })

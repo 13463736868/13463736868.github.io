@@ -1575,6 +1575,10 @@ var Conf = (function () {
   }
 })()
 
+String.prototype.trim = function() {
+  return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+}
+
 function resAjax(type) {
   return new Promise(function (resolve, reject) {
     var _d = Conf.get(type)

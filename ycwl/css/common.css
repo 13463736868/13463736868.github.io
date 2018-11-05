@@ -62,3 +62,42 @@ a:hover,a:focus{text-decoration: none;}
 ._footer p {
   padding: 2px 0;
 }
+/* page */
+.ui-pagination-container {
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.ui-pagination-container .ui-pagination-page-item {
+  font-size: 14px;
+  padding: 4px 10px;
+  background: #fff;
+  border: 1px solid #c5b7b7;
+  color: #888;
+  margin: 0 3px;
+  text-decoration: none;
+}
+
+.ui-pagination-container .ui-pagination-page-item:hover {
+  border-color: #568dbd;
+  color: #568dbd;
+  text-decoration: none;
+}
+
+.ui-pagination-container .ui-pagination-page-item.active {
+  background: #0099dd;
+  border-color: #568dbd;
+  color: #fff;
+  cursor: default;
+}
+.ui-pagination-container-span{
+  height: 34px;
+  line-height: 34px;
+  color:#0099dd;
+  margin-right: 20px;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
